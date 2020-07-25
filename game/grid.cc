@@ -65,25 +65,31 @@ void Grid::turnOn( size_t r, size_t c ) {
 }
 
 void Grid::tick(){
-        for (auto x : vec_cells) {
-                for (auto y : x) {
+        for (auto &x : vec_cells) {
+                for (auto &y : x) {
                         // each cell notifies ALL
+                        y.reset(); // notify your neighbours
+                }
+        }
+
+        for (auto &x : vec_cells) {
+                for (auto &y : x) {
                         y.notify(); // notify your neighbours
                 }
         }
-        for (auto x : vec_cells) {
-                for (auto y : x) {
-                        y.recalculate();
-                        td->notify(y);
-
+        ////////////////////////////////////////////////////////
+        for (auto &vec : vec_cells) {
+                for (auto &cell : vec) {
+                        cell.recalculate();
+                        //    td->notify(y); with this works
                 }
         }
-/*
-        for (auto x : vec_cells) {
-                for (auto y : x) {
+        /////////////////////////////////////////////////////////
+        for (auto &x : vec_cells) {
+                for (auto &y : x) {
                         td->notify(y);
                 }
-        }*/
+        }
 }                        // Next tick of the simulation.
 
 

@@ -33,9 +33,8 @@ void Cell::setLiving() {
 
 
 void Cell::reset(){
-        //observers.clear()
         alive_nbrs = 0;
-}     // Resets neighbour count to 0.
+}
 
 // Grid calls this to get me to notify my neighbours if I'm alive.
 // Also needs to be called when state is set to be alive so displays are notified.
@@ -55,28 +54,24 @@ void Cell::notify(Subject & whoNotified) {
 
 // Reassess my living-or-dead status, based on info from neighbours.
 void Cell::recalculate() {
-        // I'm alive
-        //  std::cout << "Cell at " << "(" << inf.row << ", "<< inf.col << ") has #nbrs = ";
-        //  std::cout << alive_nbrs << std::endl;
-        //  std::string mystate = (inf.state == State::Alive) ? "Alive" : "ded";
-        //  std::cout << '\t' << "I'm :" << mystate << std::endl;
-        if (inf.state == State::Alive) {
+        if (inf.state == State::Alive) {         // I'm alive
                 if (alive_nbrs == 2 || alive_nbrs == 3) {
                         // continue living
                 } else {
-                        inf.state = State::Dead;
+                        inf.state = State::Dead; // these are not lasting
                 }
-        } else {
-                // im ded
+        } else { // im ded
                 if (alive_nbrs == 3) {
-                        inf.state = State::Alive;
+                        inf.state = State::Alive; // these are not lasting
                 }
         }
-        //mystate = (inf.state == State::Alive) ? "Alive" : "ded";
-        //std::cout << '\t' << "I'm :" << mystate << std::endl;
-
         alive_nbrs = 0;
 }
+
+/*
+   mystate = (inf.state == State::Alive) ? "Alive" : "ded";
+   std::cout << '\t' << " NOW I should be :" << mystate << std::endl;
+ */
 
 // Observer calls this to get information about cell.
 //virtual Info getInfo() const override;

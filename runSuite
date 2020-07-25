@@ -67,4 +67,6 @@ for tests in $(cat ${1}) ; do
 	
 	rm "${expected}"
 done
-echo '\n' xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ${COUNT} TESTS PASSED '\n' xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+echo xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+echo xxxxxxxxx ${COUNT} TESTS PASSED xxxxxxxx
+echo xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx

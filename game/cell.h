@@ -12,8 +12,8 @@ private:
 size_t r,c;
 Info inf; //
 int alive_nbrs;
-
 public:
+
 Cell(size_t r, size_t c);
 void setLiving();     // Marks cell as alive.
 void reset();     // Resets neighbour count to 0.
