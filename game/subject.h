@@ -8,12 +8,12 @@
 class Observer;
 
 class Subject {
-    std::vector<Observer*> observers;
+std::vector<Observer*> observers;
 
-  public:
-    void attach(Observer *o);  
-    void notifyObservers();
-    virtual Info getInfo() const = 0;
+public:
+void attach(Observer *o);
+void notifyObservers();
+virtual Info getInfo() const = 0;
 };
 
 #endif

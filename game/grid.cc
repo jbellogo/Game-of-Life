@@ -52,7 +52,7 @@ void Grid::init( size_t n ){
                                         }
                                 }
                         }
-                        //std::cout << "at : (" << i << ", "  << j  << ") nbrs: " <<  count<< std::endl;
+                        //  std::cout << "at : (" << i << ", "  << j  << ") nbrs: " <<  count<< std::endl;
                         //std::cout << std::endl;
                 }
         }
@@ -67,6 +67,7 @@ void Grid::turnOn( size_t r, size_t c ) {
 void Grid::tick(){
         for (auto x : vec_cells) {
                 for (auto y : x) {
+                        // each cell notifies ALL
                         y.notify(); // notify your neighbours
                 }
         }

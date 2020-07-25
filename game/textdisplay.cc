@@ -20,6 +20,12 @@ TextDisplay::TextDisplay( size_t n ){
 void TextDisplay::notify( Subject & whoNotified ){
         size_t row = whoNotified.getInfo().row;
         size_t col = whoNotified.getInfo().col;
+        std::string mystate = (whoNotified.getInfo().state == State::Alive) ? "Alive" : "ded";
+
+        std::cout << "Cell at " << "(" << row << ", "<< col << ") is :" << mystate << std::endl;
+
+
+
         if (whoNotified.getInfo().state == State::Dead) {
                 theDisplay[row][col] = '_';
         } else {

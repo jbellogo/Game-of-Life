@@ -31,6 +31,7 @@ void Cell::setLiving() {
         inf.state = State::Alive;
 }     // Marks cell as alive.
 
+
 void Cell::reset(){
         //observers.clear()
         alive_nbrs = 0;
@@ -40,12 +41,14 @@ void Cell::reset(){
 // Also needs to be called when state is set to be alive so displays are notified.
 //virtual void notify() override;
 void Cell::notify(){
-        notifyObservers();          // this is polymorphic
+        if (inf.state == State::Alive) {
+                notifyObservers();  // this is polymorphic
+        }
 }
 
 // My neighbours will call this to let me know if they're alive.
 void Cell::notify(Subject & whoNotified) {
-        if (inf.state == State::Alive) {
+        if (whoNotified.getInfo().state == State::Alive) {
                 alive_nbrs++;
         }
 }
@@ -73,7 +76,6 @@ void Cell::recalculate() {
         std::cout << '\t' << "I'm :" << mystate << std::endl;
 
         alive_nbrs = 0;
-        notify();
 }
 
 // Observer calls this to get information about cell.
