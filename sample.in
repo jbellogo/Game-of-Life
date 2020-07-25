@@ -1,0 +1,10 @@
+new 4
+init 
+0 0 1 1 2 2 3 3
+0 3 3 0
+-1 -1 
+print
+step print
+step print
+step 20
+print
