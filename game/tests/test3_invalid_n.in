@@ -1,0 +1,10 @@
+new 0
+print
+new 1
+init
+0 0
+print 
+step 
+print
+step
+print

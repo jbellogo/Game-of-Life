@@ -60,8 +60,8 @@ void Grid::init( size_t n ){
 
 
 void Grid::turnOn( size_t r, size_t c ) {
-        vec_cells[r][c].setLiving();
-        td->notify(vec_cells[r][c]);
+        vec_cells[c][r].setLiving();
+        td->notify(vec_cells[c][r]);
 }
 
 void Grid::tick(){
@@ -74,13 +74,16 @@ void Grid::tick(){
         for (auto x : vec_cells) {
                 for (auto y : x) {
                         y.recalculate();
+                        td->notify(y);
+
                 }
         }
+/*
         for (auto x : vec_cells) {
                 for (auto y : x) {
                         td->notify(y);
                 }
-        }
+        }*/
 }                        // Next tick of the simulation.
 
 

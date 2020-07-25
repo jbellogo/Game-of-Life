@@ -56,10 +56,10 @@ void Cell::notify(Subject & whoNotified) {
 // Reassess my living-or-dead status, based on info from neighbours.
 void Cell::recalculate() {
         // I'm alive
-        std::cout << "Cell at " << "(" << inf.row << ", "<< inf.col << ") has #nbrs = ";
-        std::cout << alive_nbrs << std::endl;
-        std::string mystate = (inf.state == State::Alive) ? "Alive" : "ded";
-        std::cout << '\t' << "I'm :" << mystate << std::endl;
+        //  std::cout << "Cell at " << "(" << inf.row << ", "<< inf.col << ") has #nbrs = ";
+        //  std::cout << alive_nbrs << std::endl;
+        //  std::string mystate = (inf.state == State::Alive) ? "Alive" : "ded";
+        //  std::cout << '\t' << "I'm :" << mystate << std::endl;
         if (inf.state == State::Alive) {
                 if (alive_nbrs == 2 || alive_nbrs == 3) {
                         // continue living
@@ -72,8 +72,8 @@ void Cell::recalculate() {
                         inf.state = State::Alive;
                 }
         }
-        mystate = (inf.state == State::Alive) ? "Alive" : "ded";
-        std::cout << '\t' << "I'm :" << mystate << std::endl;
+        //mystate = (inf.state == State::Alive) ? "Alive" : "ded";
+        //std::cout << '\t' << "I'm :" << mystate << std::endl;
 
         alive_nbrs = 0;
 }

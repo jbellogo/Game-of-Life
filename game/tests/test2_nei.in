@@ -1,0 +1,39 @@
+new 5 
+init
+2 2
+4 4
+-1 -1
+init
+0 0
+0 4
+-1 -1
+init
+4 0
+4 1
+4 2
+4 3
+4 4
+-1 -1
+
+print
+step 
+print
+step
+print 
+step 2
+print
+
+new 5
+init
+2 2
+4 4
+0 0
+0 4
+4 0
+4 1
+4 2
+4 3
+-1 -1
+print
+step 4
+print
